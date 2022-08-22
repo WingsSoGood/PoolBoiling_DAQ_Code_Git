@@ -47,7 +47,7 @@ def LoadCalibrationFormula_Thermocouple(tc_pls):
     # tables = {}
     Thermocouple_calibration_dictionary = {}
     for key, value in tc_pls.items():
-        tab_i = pd.read_csv('TC Re-calibration/'+value[-2:]+'.csv')
+        tab_i = pd.read_csv('../TC Re-calibration/'+value[-2:]+'.csv')
         # x, y = tab_i['U'], tab_i['T']
         Thermocouple_calibration_dictionary_i = dict(zip(tab_i['Rational43_p_name'], tab_i['Rational43_p_value']))
         # tables[value] = x, y
@@ -55,12 +55,12 @@ def LoadCalibrationFormula_Thermocouple(tc_pls):
     return Thermocouple_calibration_dictionary
 
 def LoadCalibrationFormula_T1_T2():
-    tab_i = pd.read_csv('TC Re-calibration/T1_T2_Diff.csv')
+    tab_i = pd.read_csv('../TC Re-calibration/T1_T2_Diff.csv')
     Thermocouple_calibration_dictionary_i = dict(zip(tab_i['Parameter'], tab_i['Value']))
     return Thermocouple_calibration_dictionary_i
 
 def LoadCalibrationFormula_T_bulk():
-    tab_i = pd.read_csv('TC Re-calibration/T_bulk_Diff.csv')
+    tab_i = pd.read_csv('../TC Re-calibration/T_bulk_Diff.csv')
     Thermocouple_calibration_dictionary_i = dict(zip(tab_i['Parameter'], tab_i['Value']))
     return Thermocouple_calibration_dictionary_i
 
@@ -656,7 +656,7 @@ def main(HE_C, RS_C, Cam_C, T_bulk_setpoint, T_surface_setpoint):
     minv = -78e-3
     maxv = -minv
     # df1 = pd.DataFrame()
-    filename = 'Data.csv'
+    filename = '..\Data.csv'
     checkDataFileOverwrite(filename)    
     f = open(filename, "w+")
     f.close()
